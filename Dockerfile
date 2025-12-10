@@ -18,8 +18,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app source code
 COPY app.py .
+
+# Copy templates directory
 COPY templates/ ./templates/
-COPY static/ ./static/
+
+# Create static directory (may be empty)
+RUN mkdir -p ./static
 
 EXPOSE 5000
 
